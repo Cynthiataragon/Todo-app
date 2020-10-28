@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import TodoList from "./TodoList";
+import FlipMove from "react-flip-move";
 
 class TodoItems extends Component{
     constructor(props){
@@ -23,7 +24,12 @@ render () {
     var listItems = todoEntries.map(this.createTasks);
 
     return (
-    <ul className = "theList">{listItems}</ul>
+    <ul className = "theList">
+        <FlipMove duration={250} easing="ease-out">
+        {listItems}
+        </FlipMove>
+        </ul>
+    
     );
 }
 };
